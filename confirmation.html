@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed &mdash; Acme Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; background: #fafafa; }
+    header { background: #111; color: #fff; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 20px; font-weight: 700; }
+    header a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.7; }
+    .container { max-width: 600px; margin: 60px auto; padding: 20px; text-align: center; }
+    .checkmark { font-size: 64px; margin-bottom: 16px; }
+    h2 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 16px; margin-bottom: 32px; }
+    .order-box { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: left; margin-bottom: 32px; }
+    .order-box .detail { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .order-box .detail:last-child { border-bottom: none; }
+    .order-box .detail .label { color: #888; }
+    .btn { display: inline-block; background: #111; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: #333; }
+    .qa-banner { background: #fef3c7; border-bottom: 1px solid #f59e0b; padding: 8px 16px; text-align: center; font-size: 13px; color: #92400e; }
+    .qa-tools { background: #eff6ff; border: 1px solid #3b82f6; border-radius: 8px; padding: 16px; margin-top: 32px; text-align: left; font-size: 13px; }
+    .qa-tools h4 { color: #1e40af; margin-bottom: 8px; }
+    .qa-tools button { background: #3b82f6; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; margin: 2px; }
+    .qa-tools button:hover { background: #2563eb; }
+    .qa-tools .note { color: #6b7280; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="qa-banner">QA Demo Store &mdash; The Thrilled NPS widget should appear on this page</div>
+  <header>
+    <h1><a href="index.html" style="color:#fff;text-decoration:none">Acme Store</a></h1>
+    <a href="index.html">Continue Shopping</a>
+  </header>
+  <div class="container">
+    <div class="checkmark">&#10004;&#65039;</div>
+    <h2>Order Confirmed!</h2>
+    <p class="subtitle">Thanks for your purchase. Your order is on its way.</p>
+    <div class="order-box">
+      <div class="detail"><span class="label">Order #</span><span>ACM-2026-0042</span></div>
+      <div class="detail"><span class="label">Item</span><span>Turbo Widget Pro</span></div>
+      <div class="detail"><span class="label">Total</span><span>$49.99</span></div>
+      <div class="detail"><span class="label">Email</span><span>qa@acmestore.test</span></div>
+      <div class="detail"><span class="label">Estimated delivery</span><span>Mar 3 &ndash; 5, 2026</span></div>
+    </div>
+    <a href="index.html" class="btn">Continue Shopping</a>
+
+    <div class="qa-tools">
+      <h4>QA Controls</h4>
+      <p>Use these to reset state and re-trigger the widget:</p>
+      <br>
+      <button onclick="localStorage.removeItem('thrilled_rid'); location.reload();">Reset respondent ID + reload</button>
+      <button onclick="localStorage.clear(); location.reload();">Clear all localStorage + reload</button>
+      <button onclick="location.reload();">Reload (keep state)</button>
+      <p class="note">Cooldown is set to 0 days for testing. If the widget doesn't appear, check the browser console (F12) for errors.</p>
+    </div>
+  </div>
+
+  <!-- Thrilled NPS Widget -->
+  <script>
+    window.Thrilled = {
+      userId: 'qa-user-' + Math.floor(Math.random() * 100000),
+      properties: { plan: 'pro', source: 'github-pages-qa' }
+    };
+  </script>
+  <script src="https://getthrilled.io/widget.js?token=16f6c352-a2bd-4c17-bc9a-02b4f05a2a55"></script>
+</body>
+</html>

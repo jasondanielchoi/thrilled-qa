@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout &mdash; Acme Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; background: #fafafa; }
+    header { background: #111; color: #fff; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 20px; font-weight: 700; }
+    header a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.7; }
+    .container { max-width: 500px; margin: 40px auto; padding: 20px; }
+    h2 { font-size: 24px; margin-bottom: 24px; }
+    .order-summary { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .order-summary .line { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .order-summary .line:last-child { border-bottom: none; font-weight: 700; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #555; }
+    .form-group input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+    .form-group input:focus { outline: none; border-color: #111; }
+    .btn { display: inline-block; background: #16a34a; color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; cursor: pointer; width: 100%; font-weight: 600; }
+    .btn:hover { background: #15803d; }
+    .qa-banner { background: #fef3c7; border-bottom: 1px solid #f59e0b; padding: 8px 16px; text-align: center; font-size: 13px; color: #92400e; }
+  </style>
+</head>
+<body>
+  <div class="qa-banner">QA Demo Store &mdash; No real payment. Click "Place Order" to simulate.</div>
+  <header>
+    <h1><a href="index.html" style="color:#fff;text-decoration:none">Acme Store</a></h1>
+    <a href="index.html">&larr; Back to Shop</a>
+  </header>
+  <div class="container">
+    <h2>Checkout</h2>
+    <div class="order-summary">
+      <div class="line"><span>Turbo Widget Pro</span><span>$49.99</span></div>
+      <div class="line"><span>Shipping</span><span>Free</span></div>
+      <div class="line"><span>Total</span><span>$49.99</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); window.location.href='confirmation.html';">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" value="qa@acmestore.test">
+      </div>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" value="4242 4242 4242 4242" readonly style="background:#f9f9f9">
+      </div>
+      <div style="display:flex;gap:12px">
+        <div class="form-group" style="flex:1"><label>Expiry</label><input type="text" value="12/28" readonly style="background:#f9f9f9"></div>
+        <div class="form-group" style="flex:1"><label>CVC</label><input type="text" value="123" readonly style="background:#f9f9f9"></div>
+      </div>
+      <button type="submit" class="btn">Place Order &rarr;</button>
+    </form>
+  </div>
+</body>
+</html>
