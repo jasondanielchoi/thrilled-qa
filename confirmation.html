@@ -29,7 +29,7 @@
   </style>
 </head>
 <body>
-  <div class="qa-banner">QA Demo Store &mdash; The Thrilled NPS widget should appear on this page</div>
+  <div class="qa-banner">QA Demo Store &mdash; Thrilled survey widget + cancel flow embed (survey 15 active, 16/17 commented out)</div>
   <header>
     <h1><a href="index.html" style="color:#fff;text-decoration:none">Acme Store</a></h1>
     <a href="index.html">Continue Shopping</a>
@@ -46,6 +46,16 @@
       <div class="detail"><span class="label">Estimated delivery</span><span>Mar 14 &ndash; 17, 2026</span></div>
     </div>
     <a href="index.html" class="btn">Continue Shopping</a>
+    <div style="margin-top: 16px;">
+      <button data-thrilled-cancel
+              data-customer-id="cus_qa_alice"
+              data-email="alice@example.com"
+              data-subscription-id="sub_qa_test"
+              data-mrr="4999"
+              style="background:none; border:1px solid #ddd; color:#999; padding:8px 16px; border-radius:6px; font-size:12px; cursor:pointer;">
+        Cancel Subscription
+      </button>
+    </div>
 
     <div class="qa-tools">
       <h4>QA Controls</h4>
@@ -58,15 +68,43 @@
     </div>
   </div>
 
-  <!-- Thrilled NPS Widget -->
+  <!-- Thrilled Survey Widgets (QA: one per creation method) -->
+
+  <!-- Survey 15: Template-created (Churn Risk Assessment, NPS) -->
   <script>
     window.Thrilled = {
-      userId: 'alice-' + Date.now(),
-      email: 'alice@example.com',
-      name: 'Alice Johnson',
-      properties: { plan: 'pro', source: 'acme-store' }
+      surveyId: "15",
+      userId: "alice-" + Date.now(),
+      email: "alice@example.com"
     };
   </script>
   <script src="https://getthrilled.io/widget.js?token=afc02d43-9547-427d-9a67-561c125fbf21" async></script>
+
+  <!-- Survey 16: AI-created (Online Pet Supply, CSAT) — uncomment to test -->
+  <!--
+  <script>
+    window.Thrilled = {
+      surveyId: "16",
+      userId: "alice-" + Date.now(),
+      email: "alice@example.com"
+    };
+  </script>
+  <script src="https://getthrilled.io/widget.js?token=afc02d43-9547-427d-9a67-561c125fbf21" async></script>
+  -->
+
+  <!-- Survey 17: Blank-created (QA Blank CES Survey) — uncomment to test -->
+  <!--
+  <script>
+    window.Thrilled = {
+      surveyId: "17",
+      userId: "alice-" + Date.now(),
+      email: "alice@example.com"
+    };
+  </script>
+  <script src="https://getthrilled.io/widget.js?token=afc02d43-9547-427d-9a67-561c125fbf21" async></script>
+  -->
+
+  <!-- Cancel Flow (Cancel Flow 7) -->
+  <script src="https://getthrilled.io/cancel-flow-widget.js?token=179625e4-d206-40a5-8bb9-acc816dd63cd" async></script>
 </body>
 </html>
