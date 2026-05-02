@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Account Widget Test — QA</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; background: #fafafa; padding: 40px 20px; }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 28px; margin-bottom: 12px; }
+    p  { color: #555; line-height: 1.55; margin-bottom: 12px; }
+    .meta { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 24px; font-size: 13px; color: #444; }
+    .meta code { background: #f4f4f4; padding: 1px 6px; border-radius: 4px; }
+    .banner { background: #ecfdf5; border: 1px solid #10b981; padding: 8px 16px; text-align: center; font-size: 13px; color: #065f46; border-radius: 8px; margin-bottom: 18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner">QA: Fresh-account widget end-to-end test (NEW org token, NOT Pulse QA)</div>
+    <h1>Fresh Account Widget Test</h1>
+    <p>This page exists to verify that a brand-new Thrilled account can sign up, copy
+       its widget snippet, drop it into a third-party site, and have responses
+       attribute back to the new org — independent of any prior test setup.</p>
+    <p>If everything works, the widget will pop up shortly after page load. Click a
+       rating, submit, and the response should land in the new account's dashboard.</p>
+    <div class="meta">
+      <strong>Snippet copied from the dashboard's Copy embed snippet button:</strong><br>
+      Org token: <code>79fbbef9-94e7-431b-9a53-334b94e69b36</code><br>
+      Survey id (as emitted by snippet): <code>189</code><br>
+      Survey public_id (from share link): <code>aad84b0d-62e3-4f60-8cb5-fd39e87f9527</code><br>
+      Account email: <code>qa-fresh-1777700437740@thrilled-qa.test</code><br>
+      Created: 2026-05-02
+    </div>
+  </div>
+  <script>
+    window.Thrilled = {
+      surveyId: "aad84b0d-62e3-4f60-8cb5-fd39e87f9527",
+      userId: "fresh-acct-shopper-" + Date.now(),
+      email: "fresh-acct-shopper-" + Date.now() + "@example.com"
+    };
+  </script>
+  <script src="https://getthrilled.io/widget.js?token=79fbbef9-94e7-431b-9a53-334b94e69b36" async></script>
+</body>
+</html>
