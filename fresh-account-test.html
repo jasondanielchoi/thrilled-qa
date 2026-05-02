@@ -12,35 +12,30 @@
     p  { color: #555; line-height: 1.55; margin-bottom: 12px; }
     .meta { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 24px; font-size: 13px; color: #444; }
     .meta code { background: #f4f4f4; padding: 1px 6px; border-radius: 4px; }
-    .banner { background: #ecfdf5; border: 1px solid #10b981; padding: 8px 16px; text-align: center; font-size: 13px; color: #065f46; border-radius: 8px; margin-bottom: 18px; }
+    .banner { background: #fef3c7; border: 1px solid #f59e0b; padding: 8px 16px; text-align: center; font-size: 13px; color: #92400e; border-radius: 8px; margin-bottom: 18px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="banner">QA: Fresh-account widget end-to-end test (NEW org token, NOT Pulse QA)</div>
+    <div class="banner">QA: Fresh-account widget test — pasting EXACT snippet from dashboard, no edits.</div>
     <h1>Fresh Account Widget Test</h1>
-    <p>This page exists to verify that a brand-new Thrilled account can sign up, copy
-       its widget snippet, drop it into a third-party site, and have responses
-       attribute back to the new org — independent of any prior test setup.</p>
-    <p>If everything works, the widget will pop up shortly after page load. Click a
-       rating, submit, and the response should land in the new account's dashboard.</p>
+    <p>This page pastes the snippet exactly as the dashboard's "Copy embed snippet"
+       button placed it on the clipboard. No alterations to surveyId or token.
+       What customers actually copy-paste — verbatim.</p>
     <div class="meta">
-      <strong>Snippet copied from the dashboard's Copy embed snippet button:</strong><br>
-      Org token: <code>79fbbef9-94e7-431b-9a53-334b94e69b36</code><br>
-      Survey id (as emitted by snippet): <code>189</code> ← BUG: snippet generator emits DB id<br>
-      Survey link_token (in /s/ share URL): <code>aad84b0d-62e3-4f60-8cb5-fd39e87f9527</code><br>
-      Survey public_id (what widget config matches on): <code>oUc9xideRWbm</code><br>
       Account email: <code>qa-fresh-1777700437740@thrilled-qa.test</code><br>
       Created: 2026-05-02
     </div>
   </div>
+  <!-- BEGIN: snippet copied verbatim from the Surveys list "Copy embed snippet" button -->
   <script>
-    window.Thrilled = {
-      surveyId: "oUc9xideRWbm",
-      userId: "fresh-acct-shopper-" + Date.now(),
-      email: "fresh-acct-shopper-" + Date.now() + "@example.com"
-    };
-  </script>
+window.Thrilled = {
+  surveyId: "189",
+  userId: "YOUR_USER_ID",     // replace with your user's unique ID
+  email: "USER_EMAIL"          // optional: enables Intercom/HubSpot sync
+};
+</script>
   <script src="https://getthrilled.io/widget.js?token=79fbbef9-94e7-431b-9a53-334b94e69b36" async></script>
+  <!-- END snippet -->
 </body>
 </html>
